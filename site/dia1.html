@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Maps API</title>
+
+    <script src="./script1.js"></script>
+    <script src="../wicket/wicket.js"></script>
+    <script src="../wicket/wicket-gmap3.js"></script>
+    <script src="../marker-clusterer/src/markerclusterer.js"></script>
+
+    <link rel="stylesheet" href="./style.css">
+	
+  </head>
+  <body>
+	<div id="painel">
+		<div>
+			Zoom: 
+			<select id="zoom">
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select>
+		</div>
+		<div>
+			Mapa Base:
+			<select id="mapaBase">
+				<option value="roadmap">Roadmap</option>
+				<option value="satellite">Satélite</option>
+				<option value="hybrid">Híbrido</option>
+				<option value="terrain">Terreno</option>
+			</select>
+		</div>
+		<div>
+			Mostrar Trânsito:
+			<select id="showTraffic">
+				<option value="1">Sim</option>
+				<option value="0">Não</option>
+			</select>
+		</div>
+		<div>
+			Latitude
+			<input type="text" name="lat" id="latitude" value="-25.475987"/>
+			<br>
+			Longitude
+			<input type="text" name="lon" id="longitude" value="-54.555513"/>
+		</div>
+		<div>
+			<input type="checkbox" id="checkstyled"/>
+			<textarea rows="4" cols="80" id="estiloMapa">[
+				  {
+					"featureType": "administrative.locality",
+					"stylers": [
+					  {
+						"color": "#0000ff"
+					  },
+					  {
+						"weight": 0.5
+					  }
+					]
+				  },
+				  {
+					"featureType": "administrative.province",
+					"stylers": [
+					  {
+						"color": "#0000ff"
+					  }
+					]
+				  },
+				  {
+					"featureType": "landscape.natural",
+					"elementType": "geometry.fill",
+					"stylers": [
+					  {
+						"color": "#ff80c0"
+					  }
+					]
+				  },
+				  {
+					"featureType": "landscape.natural.landcover",
+					"elementType": "geometry.fill",
+					"stylers": [
+					  {
+						"color": "#ff80c0"
+					  }
+					]
+				  },
+				  {
+					"featureType": "water",
+					"stylers": [
+					  {
+						"color": "#00ff00"
+					  }
+					]
+				  },
+				  {
+					"featureType": "water",
+					"elementType": "labels.text",
+					"stylers": [
+					  {
+						"color": "#ff0000"
+					  },
+					  {
+						"visibility": "on"
+					  }
+					]
+				  }
+				]
+			</textarea>
+		</div>
+		<div>
+			<!--
+			<input type="button" name="aplicar" value="Aplicar" onclick="applyOptions()"/>
+			-->
+		</div>
+		<div>
+			<select id="corMarker">
+				<option value="http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_red.png">Vermelho</option>
+				<option value="http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png">Verde</option>
+				<option value="http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_purple.png">Rosa</option>
+			</select>
+			<input type="button" name="addmarker" value="AddMarker" onclick="addMarker()"/>
+			<input type="button" name="rmmarker" value="Remover Todos" onclick="removerTodosMarkers()"/>
+		</div>
+	</div>
+	<div id="map"></div>
+	<script src="https://maps.google.com/maps/api/js?key=AIzaSyC8-RhkdZpUSUL7k-rscOWE6PZB4IQi2rI&callback=initMap"></script>
+  </body>
+</html>
